@@ -5,6 +5,7 @@ let nullValue = null;
 let noAsigned;
 
 ///////////////////////////////////
+////////////////////////////////
 
 console.log(str);
 console.log(num);
