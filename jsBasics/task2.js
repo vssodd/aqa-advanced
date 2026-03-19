@@ -5,7 +5,6 @@ const str3 = 'AQA';
 console.log(str + ' ' + str2 + ' ' + str3);
 
 ///////////////////////////////////
-//////////////////////////////////
 
 const str4 = 'Hello';
 const str5 = `${str4} World`;
