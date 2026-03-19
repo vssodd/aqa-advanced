@@ -4,8 +4,6 @@ let bool = true;
 let nullValue = null;
 let noAsigned;
 
-////////////////////////////////
-
 console.log(str);
 console.log(num);
 console.log(bool);
