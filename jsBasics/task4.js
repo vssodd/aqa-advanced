@@ -3,9 +3,6 @@ var area = Math.PI * Math.pow(radius, 2);
 console.log('Завдання 4.1');
 console.log('The area of the circle with radius ' + radius + ' is: ' + area.toFixed(2));
 
-///////////////////////////////////
-//////////////////////////////////
-
 length = 10;
 width = 5;
 area = length * width;
