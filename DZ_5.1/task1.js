@@ -1,3 +1,5 @@
+// Завдання 1: Визначення рівня успішності студента
+
 const averageGrade = 85;
 
 if (averageGrade >= 91) {
