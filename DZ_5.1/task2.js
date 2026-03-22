@@ -1,5 +1,7 @@
 const averageGrade = 60;
 
+////////////////////////////////
+
 switch (true) {
   case averageGrade >= 91:
     console.log('Відмінно');

@@ -1,5 +1,7 @@
 const averageGrade = 85;
 
+////////////////////////////////
+
 if (averageGrade >= 91) {
   console.log('Відмінно');
 } else if (averageGrade >= 81) {
