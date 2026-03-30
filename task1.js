@@ -1,13 +1,18 @@
-// function areaOfRectangle(length, width) {
-//   return length * width;
-// }
-// console.log(areaOfRectangle(5, 3)); // Output: 15
+function handleNum(num, callback_Even, callback_Odd) {
+  if (num % 2) {
+    callback_Even(num);
+  } else {
+    callback_Odd(num);
+  }
+}
 
-// const areaOfRectangle = function (length, width) {
-//   return length * width;
-// };
-// console.log(areaOfRectangle(5, 3)); // Output: 15
+const handleEven = (num) => {
+  console.log(`${num} number is even.`);
+};
 
-// const areaOfRectangle = (length, width) => length * width;
+const handleOdd = (num) => {
+  console.log(`${num} number is odd.`);
+};
 
-// console.log(areaOfRectangle(5, 3)); // Output: 15
+handleNum(5, handleEven, handleOdd);
+handleNum(10, handleEven, handleOdd);

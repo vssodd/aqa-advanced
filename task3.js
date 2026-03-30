@@ -1,13 +1,27 @@
-function checkOrder(available, ordered) {
-  if (available >= ordered) {
-    return 'Your order is accepted';
-  } else if (available < ordered) {
-    return 'Your order is too large, we don’t have enough goods.';
-  } else if (available <= 0) {
-    return 'Your order is empty';
+function divide(numerator, denominator) {
+  if (denominator === 0) {
+    throw new Error('Denominator cannot be zero');
   }
+  if (typeof numerator === 'string' || typeof denominator === 'string') {
+    throw new Error('Arguments must be numbers');
+  }
+  const result = numerator / denominator;
+  return result;
 }
 
-console.log(checkOrder(100, 50)); // Your order is accepted
-console.log(checkOrder(100, 150)); // Your order is too large, we don’t have enough goods.
-console.log(checkOrder(0, 50)); // Your order is empty
+// try catch block to handle errors
+//↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓//
+
+// Error: Denominator cannot be zero
+try {
+  divide(12, 0);
+} catch (error) {
+  console.error(`Робота завершена ${error.message}`);
+}
+
+// Error: Arguments must be numbers
+try {
+  divide('12', 4);
+} catch (error) {
+  console.error(`Робота завершена ${error.message}`);
+}
