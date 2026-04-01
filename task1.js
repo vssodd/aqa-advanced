@@ -1,18 +1,19 @@
-function handleNum(num, callback_Even, callback_Odd) {
-  if (num % 2) {
-    callback_Even(num);
+const numbers = [2, -5, 0, 7, -3, 0, -10, -8];
+
+let positiveCount = 0;
+let negativeCount = 0;
+let zeroCount = 0;
+
+for (let i = 0; i < numbers.length; i++) {
+  if (numbers[i] > 0) {
+    positiveCount++;
+  } else if (numbers[i] < 0) {
+    negativeCount++;
   } else {
-    callback_Odd(num);
+    zeroCount++;
   }
 }
 
-const handleEven = (num) => {
-  console.log(`${num} number is even.`);
-};
-
-const handleOdd = (num) => {
-  console.log(`${num} number is odd.`);
-};
-
-handleNum(5, handleEven, handleOdd);
-handleNum(10, handleEven, handleOdd);
+console.log('positiveCount:', positiveCount);
+console.log('negativeCount:', negativeCount);
+console.log('zeroCount:', zeroCount);

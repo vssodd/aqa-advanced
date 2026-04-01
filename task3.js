@@ -1,27 +1,8 @@
-function divide(numerator, denominator) {
-  if (denominator === 0) {
-    throw new Error('Denominator cannot be zero');
-  }
-  if (typeof numerator === 'string' || typeof denominator === 'string') {
-    throw new Error('Arguments must be numbers');
-  }
-  const result = numerator / denominator;
-  return result;
-}
+const numbers = new Array(10, 20, 30, 40, 50);
+const initialValue = 0;
+const sumWithInitial = numbers.reduce(
+  (accumulator, currentValue) => accumulator + currentValue,
+  initialValue,
+);
 
-// try catch block to handle errors
-//↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓//
-
-// Error: Denominator cannot be zero
-try {
-  divide(12, 0);
-} catch (error) {
-  console.error(`Робота завершена ${error.message}`);
-}
-
-// Error: Arguments must be numbers
-try {
-  divide('12', 4);
-} catch (error) {
-  console.error(`Робота завершена ${error.message}`);
-}
+console.log(sumWithInitial);
