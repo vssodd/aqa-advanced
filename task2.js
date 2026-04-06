@@ -1,7 +1,7 @@
-function printNumber(num) {
-  if (num <= 0) return;
-  console.log(`The number is ${num}`);
-  printNumber(num - 1);
+const numbers = [1, 2, 3, 4, 5];
+
+function doubleNumbers(nums) {
+  return nums.map((num) => num * 2);
 }
 
-printNumber(5);
+console.log(doubleNumbers(numbers));
