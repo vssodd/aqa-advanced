@@ -4,6 +4,7 @@ const users = [
   { name: 'Charlie', email: 'charlie@mail.com' },
 ];
 
+////////////////////////////////////////////////
 for (const { name, email, age } of users) {
   console.log(name, email ?? 'N/A', age ?? 'N/A');
 }
