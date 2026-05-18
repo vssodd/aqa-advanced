@@ -1,0 +1,14 @@
+{
+  "name": "dz_13-axios-jest",
+  "version": "1.0.0",
+  "description": "Axios tasks with Jest tests",
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {
+    "axios": "^1.5.0"
+  },
+  "devDependencies": {
+    "jest": "^29.0.0"
+  }
+}
