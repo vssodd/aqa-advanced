@@ -2,7 +2,6 @@ const { defineConfig } = require('cypress');
 
 module.exports = defineConfig({
   e2e: {
-    baseUrl: 'https://example.com',
     specPattern: 'cypress/e2e/**/*.cy.js',
     supportFile: 'cypress/support/e2e.js',
     viewportWidth: 1920,
@@ -11,5 +10,6 @@ module.exports = defineConfig({
     screenshotOnRunFailure: true,
     defaultCommandTimeout: 8000,
     pageLoadTimeout: 30000,
+    chromeWebSecurity: false,
   },
 });

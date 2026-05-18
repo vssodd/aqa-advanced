@@ -1,14 +1,15 @@
 {
-  "name": "dz_13-axios-jest",
+  "name": "qauto-registration-tests",
   "version": "1.0.0",
-  "description": "Axios tasks with Jest tests",
-  "scripts": {
-    "test": "jest"
-  },
-  "dependencies": {
-    "axios": "^1.5.0"
-  },
+  "description": "Cypress E2E tests for registration & login on qauto.forstudy.space",
   "devDependencies": {
-    "jest": "^29.0.0"
+    "cypress": "^15.14.2"
+  },
+  "scripts": {
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "cy:run:registration": "cypress run --spec cypress/e2e/registration.cy.js",
+    "cy:run:login": "cypress run --spec cypress/e2e/login.cy.js",
+    "cy:run:masking": "cypress run --spec cypress/e2e/password-masking.cy.js"
   }
 }
