@@ -1,16 +1,25 @@
-// Custom Cypress commands shared across specs.
-
-/**
- * Visit any path on the SUT with HTTP Basic Auth applied automatically.
- * Reads credentials from cypress.env.json (basicAuthUsername / basicAuthPassword).
- * @param {string} path absolute URL path, e.g. "/" or full URL
- */
-Cypress.Commands.add('visitWithAuth', (path = '/') => {
-  cy.visit(path, {
-    auth: {
-      username: Cypress.env('basicAuthUsername'),
-      password: Cypress.env('basicAuthPassword'),
-    },
-    failOnStatusCode: false,
-  });
-});
+// ***********************************************
+// This example commands.js shows you how to
+// create various custom commands and overwrite
+// existing commands.
+//
+// For more comprehensive examples of custom
+// commands please read more here:
+// https://on.cypress.io/custom-commands
+// ***********************************************
+//
+//
+// -- This is a parent command --
+// Cypress.Commands.add('login', (email, password) => { ... })
+//
+//
+// -- This is a child command --
+// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
+//
+//
+// -- This is a dual command --
+// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
+//
+//
+// -- This will overwrite an existing command --
+// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
