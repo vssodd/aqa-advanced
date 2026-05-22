@@ -1,0 +1,144 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-05-21T14:33:26.832Z",
+    "end": "2026-05-21T14:33:33.590Z",
+    "duration": 6758,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "1ee104b6-6e2c-4503-a3ef-b65d7bf871f3",
+      "title": "",
+      "fullFile": "cypress\\e2e\\garage.cy.js",
+      "file": "cypress\\e2e\\garage.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "c0ba4ddd-8c0f-413f-976e-e529d8f1eeb3",
+          "title": "Garage | add car flow",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "opens the Garage page with the Add Car button visible",
+              "fullTitle": "Garage | add car flow opens the Garage page with the Add Car button visible",
+              "timedOut": null,
+              "duration": 4958,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "garage.btn_add_car.should('be.visible');",
+              "err": {},
+              "uuid": "dcefb6d5-09cd-4b54-8987-102ee5250042",
+              "parentUUID": "c0ba4ddd-8c0f-413f-976e-e529d8f1eeb3",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "opens the Add Car modal when the button is clicked",
+              "fullTitle": "Garage | add car flow opens the Add Car modal when the button is clicked",
+              "timedOut": null,
+              "duration": 354,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "garage.openAddCarModal();\naddCar.modal_title.should('contain.text', 'Add a car');\naddCar.select_brand.should('be.visible');\naddCar.select_model.should('be.visible');\naddCar.input_mileage.should('be.visible');",
+              "err": {},
+              "uuid": "c8eba9f2-fcfa-43be-88be-d601c8059aa7",
+              "parentUUID": "c0ba4ddd-8c0f-413f-976e-e529d8f1eeb3",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "successfully adds a new car and shows it in the garage list",
+              "fullTitle": "Garage | add car flow successfully adds a new car and shows it in the garage list",
+              "timedOut": null,
+              "duration": 1334,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const carPayload = {\n  brand: 'Audi',\n  model: 'TT',\n  mileage: 12345\n};\ngarage.openAddCarModal();\naddCar.fillAndSubmit(carPayload);\n// Verify the car appears in the garage list\ngarage.carByTitle(`${carPayload.brand} ${carPayload.model}`).should('exist').and('be.visible');",
+              "err": {},
+              "uuid": "2de1cb9d-0cce-495c-b9e7-d9965226baf9",
+              "parentUUID": "c0ba4ddd-8c0f-413f-976e-e529d8f1eeb3",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "dcefb6d5-09cd-4b54-8987-102ee5250042",
+            "c8eba9f2-fcfa-43be-88be-d601c8059aa7",
+            "2de1cb9d-0cce-495c-b9e7-d9965226baf9"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 6646,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "timestamp": "yyyy-mm-dd_HH-MM-ss"
+      },
+      "version": "6.3.2"
+    }
+  }
+}
