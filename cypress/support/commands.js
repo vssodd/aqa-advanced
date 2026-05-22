@@ -1,12 +1,3 @@
-// =============================================================================
-// Custom commands & overrides
-// =============================================================================
-
-/**
- * Visit any path on the SUT with HTTP Basic Auth applied automatically.
- * Reads credentials from cypress.env.json (basicAuthUsername / basicAuthPassword).
- * @param {string} path absolute URL path or full URL
- */
 Cypress.Commands.add('visitWithAuth', (path = '/') => {
   cy.visit(path, {
     auth: {
@@ -18,15 +9,25 @@ Cypress.Commands.add('visitWithAuth', (path = '/') => {
 });
 
 /**
- * Log in to the application through the UI:
- *   1. Open Sign In modal
- *   2. Type email and password (password is masked in Cypress logs)
- *   3. Click Login button
- *   4. Wait until the user lands on /panel/*
- *
- * @param {string} email     user email
- * @param {string} password  user password (will appear as **** in logs)
+ * @param {{name:string, lastName:string, email:string, password:string}} user
  */
+Cypress.Commands.add('register', (user) => {
+  cy.visitWithAuth('/');
+  cy.get('app-header header.header button.header_signin').click();
+  cy.get('ngb-modal-window app-signin-modal').should('be.visible');
+  cy.get('ngb-modal-window').contains('button', 'Registration').click();
+  cy.get('app-signup-modal').should('be.visible');
+
+  cy.get('#signupName').type(user.name);
+  cy.get('#signupLastName').type(user.lastName);
+  cy.get('#signupEmail').type(user.email);
+  cy.get('#signupPassword').type(user.password, { sensitive: true });
+  cy.get('#signupRepeatPassword').type(user.password, { sensitive: true });
+
+  cy.get('app-signup-modal').contains('button', 'Register').click();
+  cy.location('pathname', { timeout: 20000 }).should('include', '/panel/garage');
+});
+
 Cypress.Commands.add('login', (email, password) => {
   cy.get('app-header header.header button.header_signin').click();
   cy.get('ngb-modal-window app-signin-modal').should('be.visible');
@@ -36,14 +37,6 @@ Cypress.Commands.add('login', (email, password) => {
   cy.location('pathname', { timeout: 15000 }).should('include', '/panel');
 });
 
-/**
- * Overwrite the built-in `type` command.
- * When `{ sensitive: true }` is passed, the original Cypress log is suppressed
- * and a replacement log entry is emitted with the password masked as *****.
- *
- * Usage:
- *   cy.get('#password').type('superSecret123', { sensitive: true });
- */
 Cypress.Commands.overwrite('type', (originalFn, element, text, options) => {
   if (options && options.sensitive) {
     options.log = false;
