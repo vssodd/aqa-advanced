@@ -1,15 +1,14 @@
 {
-  "name": "dz_19",
+  "name": "qauto-dz20-registration",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {},
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
+  "description": "Playwright tests for qauto registration form (positive + negative scenarios)",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "report": "playwright show-report"
+  },
   "devDependencies": {
-    "@playwright/test": "^1.60.0",
-    "@types/node": "^25.9.1"
+    "@playwright/test": "^1.48.0"
   }
 }
