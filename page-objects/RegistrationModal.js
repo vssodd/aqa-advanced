@@ -1,29 +1,80 @@
 class RegistrationModal {
   constructor(page) {
     this.page = page;
-    this.modal = page.locator('app-signup-modal');
-    this.title = this.modal.locator('.modal-title');
-    this.closeBtn = this.modal.locator('button.close');
+  }
 
-    this.nameInput = page.locator('#signupName');
-    this.lastNameInput = page.locator('#signupLastName');
-    this.emailInput = page.locator('#signupEmail');
-    this.passwordInput = page.locator('#signupPassword');
-    this.repeatPasswordInput = page.locator('#signupRepeatPassword');
+  get modal() {
+    return this.page.locator('app-signup-modal');
+  }
 
-    this.nameError = this.nameInput.locator('xpath=following-sibling::div[contains(@class,"invalid-feedback")]');
-    this.lastNameError = this.lastNameInput.locator('xpath=following-sibling::div[contains(@class,"invalid-feedback")]');
-    this.emailError = this.emailInput.locator('xpath=following-sibling::div[contains(@class,"invalid-feedback")]');
-    this.passwordError = this.passwordInput.locator('xpath=following-sibling::div[contains(@class,"invalid-feedback")]');
-    this.repeatPasswordError = this.repeatPasswordInput.locator('xpath=following-sibling::div[contains(@class,"invalid-feedback")]');
+  get title() {
+    return this.modal.locator('.modal-title');
+  }
 
-    this.registerBtn = this.modal.getByRole('button', { name: 'Register' });
+  get closeBtn() {
+    return this.modal.locator('button.close');
+  }
+
+  get nameInput() {
+    return this.page.locator('#signupName');
+  }
+
+  get lastNameInput() {
+    return this.page.locator('#signupLastName');
+  }
+
+  get emailInput() {
+    return this.page.locator('#signupEmail');
+  }
+
+  get passwordInput() {
+    return this.page.locator('#signupPassword');
+  }
+
+  get repeatPasswordInput() {
+    return this.page.locator('#signupRepeatPassword');
+  }
+
+  get nameError() {
+    return this.nameInput.locator('xpath=following-sibling::div[contains(@class,"invalid-feedback")]');
+  }
+
+  get lastNameError() {
+    return this.lastNameInput.locator('xpath=following-sibling::div[contains(@class,"invalid-feedback")]');
+  }
+
+  get emailError() {
+    return this.emailInput.locator('xpath=following-sibling::div[contains(@class,"invalid-feedback")]');
+  }
+
+  get passwordError() {
+    return this.passwordInput.locator('xpath=following-sibling::div[contains(@class,"invalid-feedback")]');
+  }
+
+  get repeatPasswordError() {
+    return this.repeatPasswordInput.locator('xpath=following-sibling::div[contains(@class,"invalid-feedback")]');
+  }
+
+  get registerBtn() {
+    return this.modal.getByRole('button', { name: 'Register' });
+  }
+
+  get signInButton() {
+    return this.page.locator('app-header button.header_signin');
+  }
+
+  get signInModal() {
+    return this.page.locator('app-signin-modal');
+  }
+
+  get registrationLink() {
+    return this.signInModal.getByRole('button', { name: 'Registration' });
   }
 
   async open() {
-    await this.page.locator('app-header button.header_signin').click();
-    await this.page.locator('app-signin-modal').waitFor({ state: 'visible' });
-    await this.page.locator('app-signin-modal').getByRole('button', { name: 'Registration' }).click();
+    await this.signInButton.click();
+    await this.signInModal.waitFor({ state: 'visible' });
+    await this.registrationLink.click();
     await this.modal.waitFor({ state: 'visible' });
   }
 
@@ -44,11 +95,6 @@ class RegistrationModal {
       repeatPassword: user.repeatPassword ?? user.password,
     });
     await this.registerBtn.click();
-  }
-
-  async triggerBlur(locator) {
-    await locator.focus();
-    await this.page.keyboard.press('Tab');
   }
 }
 
