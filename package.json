@@ -1,7 +1,7 @@
 {
-  "name": "qauto-dz23-fixtures",
+  "name": "qauto-dz24-network-api",
   "version": "1.0.0",
-  "description": "Playwright fixtures + storageState: userGaragePage fixture for qauto",
+  "description": "Playwright HW 29.1: response mocking + APIRequestContext tests for /api/cars",
   "scripts": {
     "test": "playwright test",
     "test:headed": "playwright test --headed",
